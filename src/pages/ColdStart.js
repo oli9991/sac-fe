@@ -117,7 +117,7 @@ function AutocompleteInput(props) {
   );
 }
 
-function FindBooks(props) {
+function ColdStart(props) {
   return (
     <div className='w-full flex flex-row px-80'>
       <div className='w-1/2 flex items-center min-h-screen md:flex'>
@@ -134,29 +134,18 @@ function FindBooks(props) {
           }}
           onSubmit={(values, { setSubmitting }) => {
             window.location.href = '/results';
-            // const errors = {};
-            // if (!values.email) {
-            //   errors.email = 'Acest câmp este obligatoriu';
-            // }
-            // if (!values.password) {
-            //   errors.password = 'Acest câmp este obligatoriu';
-            // }
-            // if (errors.email || errors.password) {
-            //   alert(JSON.stringify(errors));
-            //   setSubmitting(false);
-            //   return;
-            // }
-            // axios
-            //   .post('http://localhost:3003/api/login', {
-            //     ...values,
-            //   })
-            //   .then(() => {
-            //     setSubmitting(false);
-            //   })
-            //   .catch(() => {
-            //     console.log('error');
-            //     setSubmitting(false);
-            //   });
+
+            axios
+              .post(link + '/', {
+                ...values,
+              })
+              .then(() => {
+                setSubmitting(false);
+              })
+              .catch(() => {
+                console.log('error');
+                setSubmitting(false);
+              });
           }}
         >
           {({
@@ -193,4 +182,4 @@ function FindBooks(props) {
   );
 }
 
-export default FindBooks;
+export default ColdStart;
